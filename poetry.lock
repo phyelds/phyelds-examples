@@ -394,14 +394,14 @@ files = [
 
 [[package]]
 name = "phyelds"
-version = "1.1.0"
+version = "1.1.1"
 description = "A lightweight Python library to support aggregate computing!"
 optional = false
 python-versions = "<4.0,>=3.13"
 groups = ["main"]
 files = [
-    {file = "phyelds-1.1.0-py3-none-any.whl", hash = "sha256:a3c9255fcfd14d622914dab3aec657489d6ba3cd58c72fd295ba84527fa12e6a"},
-    {file = "phyelds-1.1.0.tar.gz", hash = "sha256:b9160203660eee047e3206861d6ec988342c3cd286267bfb9aff4338ac64dc36"},
+    {file = "phyelds-1.1.1-py3-none-any.whl", hash = "sha256:1fd5adc378649eefed385e3b076a763e285c1b65c2cf5a6446fd21d36f61bc2d"},
+    {file = "phyelds-1.1.1.tar.gz", hash = "sha256:4d4df4803b3d13d5ebcf724ebaa8eadff39410b4233fff46b73299a8bc1cf1e7"},
 ]
 
 [package.dependencies]

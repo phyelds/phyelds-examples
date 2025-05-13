@@ -13,19 +13,19 @@ from phyelds.simulator.neighborhood import radius_neighborhood
 from phyelds.simulator.render import render_sync
 from phyelds.simulator.runner import aggregate_program_runner
 
+from phyelds.libraries.device import local_position, sense
+
 random.seed(42)
 
-
 @aggregate
-def main(context):
+def main():
     """
     Example to use the phyelds library to create a simple simulation
-    :param context:
     :return:
     """
-    distances = neighbors_distances(context.position)
-    target_distance = distance_to(context.data["target"], distances)
-    nodes_in_path = collect_or(context, target_distance, context.data["source"])
+    distances = neighbors_distances(local_position())
+    target_distance = distance_to(sense("target"), distances)
+    nodes_in_path = collect_or(target_distance, sense("source"))
     # distance from nodes_in
     distance_from_path = distance_to(nodes_in_path, distances)
     channel = 1.0 if distance_from_path < 0.12 else 0.0

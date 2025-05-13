@@ -30,25 +30,6 @@ def main():
     area_value = broadcast(leader, nodes, distances)
     return area_value
 
-
-# simulator = Simulator()
-# # deformed lattice
-# simulator.environment.set_neighborhood_function(radius_neighborhood(1.5))
-# deformed_lattice(simulator, 10, 10, 1, 0.01)
-# # put source
-# for node in simulator.environment.nodes.values():
-#     node.data = {"source": False, "target": False}
-# # put a source in the first node
-# simulator.environment.node_list()[0].data["source"] = True
-# target = simulator.environment.node_list()[-1]
-# target.data["target"] = True
-# # schedule the main function
-# for node in simulator.environment.nodes.values():
-#     simulator.schedule_event(0.0, aggregate_program_runner, simulator, 0.1, node, main)
-# # render
-# simulator.schedule_event(1.0, render_sync, simulator, "result")
-# simulator.run(100)
-
 simulator = Simulator()
 # deformed lattice
 simulator.environment.set_neighborhood_function(radius_neighborhood(1.15))

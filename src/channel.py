@@ -4,8 +4,9 @@ This example shows how to use the phyelds library to create a simple simulation
 
 import random
 
-from phyelds.calculus import aggregate, neighbors_distances
+from phyelds.calculus import aggregate
 from phyelds.libraries.collect import collect_or
+from phyelds.libraries.distances import neighbors_distances
 from phyelds.libraries.spreading import distance_to
 from phyelds.simulator import Simulator
 from phyelds.simulator.deployments import deformed_lattice
@@ -23,7 +24,7 @@ def main():
     Example to use the phyelds library to create a simple simulation
     :return:
     """
-    distances = neighbors_distances(local_position())
+    distances = neighbors_distances()
     target_distance = distance_to(sense("target"), distances)
     nodes_in_path = collect_or(target_distance, sense("source"))
     # distance from nodes_in

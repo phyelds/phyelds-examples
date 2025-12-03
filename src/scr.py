@@ -1,8 +1,9 @@
 import os
 import glob
 import random
-from phyelds.calculus import aggregate, neighbors_distances
-from phyelds.libraries.leader_election import elect_leader
+from phyelds.calculus import aggregate
+from phyelds.libraries.distances import neighbors_distances
+from phyelds.libraries.leader_election import elect_leaders
 from phyelds.libraries.spreading import distance_to
 from phyelds.simulator import Simulator
 from phyelds.simulator.deployments import deformed_lattice
@@ -23,8 +24,8 @@ def main():
     Example to use the phyelds library to create a simple simulation
     :return:
     """
-    distances = neighbors_distances(local_position())
-    leader = elect_leader(4, distances)
+    distances = neighbors_distances()
+    leader = elect_leaders(4, distances)
     potential = distance_to(leader, distances)
     nodes = count_nodes(potential)
     area_value = broadcast(leader, nodes, distances)

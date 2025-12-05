@@ -1,19 +1,18 @@
-import os
-import glob
 import random
+
 from phyelds.calculus import aggregate
+from phyelds.libraries.collect import count_nodes
 from phyelds.libraries.distances import neighbors_distances
 from phyelds.libraries.leader_election import elect_leaders
+from phyelds.libraries.spreading import broadcast
 from phyelds.libraries.spreading import distance_to
+from phyelds.libraries.time import local_time
 from phyelds.simulator import Simulator
 from phyelds.simulator.deployments import deformed_lattice
+from phyelds.simulator.effects import DrawNodes, DrawEdges, RenderConfig, RenderMode
 from phyelds.simulator.neighborhood import radius_neighborhood
-from phyelds.simulator.render import render_sync
+from phyelds.simulator.render import RenderMonitor
 from phyelds.simulator.runner import aggregate_program_runner
-from phyelds.libraries.collect import count_nodes
-from phyelds.libraries.spreading import broadcast
-from phyelds.libraries.device import local_position, sense
-
 
 random.seed(42)
 
@@ -24,6 +23,7 @@ def main():
     Example to use the phyelds library to create a simple simulation
     :return:
     """
+    print(local_time())
     distances = neighbors_distances()
     leader = elect_leaders(4, distances)
     potential = distance_to(leader, distances)
@@ -34,7 +34,7 @@ def main():
 simulator = Simulator()
 # deformed lattice
 simulator.environment.set_neighborhood_function(radius_neighborhood(1.15))
-deformed_lattice(simulator, 10, 10, 1, 0.01)
+deformed_lattice(simulator, 20, 20, 1, 0.01)
 # put source
 for node in simulator.environment.nodes.values():
     node.data = {"source": False, "target": False}
@@ -44,7 +44,15 @@ target = simulator.environment.node_list()[-1]
 target.data["target"] = True
 # schedule the main function
 for node in simulator.environment.nodes.values():
-    simulator.schedule_event(0.0, aggregate_program_runner, simulator, 0.1, node, main)
+    simulator.schedule_event(random.random() / 100, aggregate_program_runner, simulator, 1.1, node, main)
 # render
-simulator.schedule_event(1.0, render_sync, simulator, "result")
-simulator.run(100)
+RenderMonitor(
+    simulator,
+    RenderConfig(
+        effects=[DrawEdges(), DrawNodes(color_from="result")],
+        mode=RenderMode.SAVE,
+        save_as="scr.mp4",
+        dt=0.1
+    )
+)
+simulator.run(200)

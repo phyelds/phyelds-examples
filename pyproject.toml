@@ -7,7 +7,7 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.13"
-phyelds = "^3.0.0"
+phyelds = "^4.0.1"
 
 
 [build-system]

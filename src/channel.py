@@ -11,10 +11,10 @@ from phyelds.libraries.spreading import distance_to
 from phyelds.simulator import Simulator
 from phyelds.simulator.deployments import deformed_lattice
 from phyelds.simulator.neighborhood import radius_neighborhood
-from phyelds.simulator.render import render_sync
+from phyelds.simulator.render import RenderMonitor
+from phyelds.simulator.effects import DrawNodes, DrawEdges, RenderConfig, RenderMode
 from phyelds.simulator.runner import aggregate_program_runner
-
-from phyelds.libraries.device import local_position, sense
+from phyelds.libraries.device import sense
 
 random.seed(42)
 
@@ -48,5 +48,13 @@ target.data["target"] = True
 for node in simulator.environment.nodes.values():
     simulator.schedule_event(0.0, aggregate_program_runner, simulator, 0.1, node, main)
 # render
-simulator.schedule_event(1.0, render_sync, simulator, "result")
-simulator.run(100)
+RenderMonitor(
+    simulator,
+    RenderConfig(
+        effects=[DrawEdges(), DrawNodes(color_from="result")],
+        mode=RenderMode.SAVE,
+        save_as="channel.mp4",
+        dt=0.1
+    )
+)
+simulator.run(10)

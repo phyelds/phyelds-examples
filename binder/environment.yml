@@ -1,0 +1,12 @@
+name: phyelds-examples
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.13
+  - pip
+  - jupyter
+  - jupyterlab
+  - pip:
+    - phyelds==5.0.0
+    - imageio>=2.37.2

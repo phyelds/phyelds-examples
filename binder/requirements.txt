@@ -1,4 +1,3 @@
 phyelds==5.0.0
 imageio>=2.37.2
-jupyter>=1.0.0
 jupyterlab>=4.0.0

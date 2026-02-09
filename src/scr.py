@@ -13,6 +13,8 @@ from phyelds.simulator.effects import DrawNodes, DrawEdges, RenderConfig, Render
 from phyelds.simulator.neighborhood import radius_neighborhood
 from phyelds.simulator.render import RenderMonitor
 from phyelds.simulator.runner import aggregate_program_runner
+from CustomRenderMonitor import CustomRenderMonitor
+from CustomDrawings import CustomDrawNodes, CustomDrawEdges
 
 random.seed(42)
 
@@ -23,7 +25,6 @@ def main():
     Example to use the phyelds library to create a simple simulation
     :return:
     """
-    print(local_time())
     distances = neighbors_distances()
     leader = elect_leaders(4, distances)
     potential = distance_to(leader, distances)
@@ -46,10 +47,10 @@ target.data["target"] = True
 for node in simulator.environment.nodes.values():
     simulator.schedule_event(random.random() / 100, aggregate_program_runner, simulator, 1.1, node, main)
 # render
-RenderMonitor(
+CustomRenderMonitor(
     simulator,
     RenderConfig(
-        effects=[DrawEdges(), DrawNodes(color_from="result")],
+        effects=[CustomDrawEdges(), CustomDrawNodes(color_from="result")],
         mode=RenderMode.SAVE,
         save_as="scr.mp4",
         dt=0.1

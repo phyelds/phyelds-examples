@@ -15,7 +15,8 @@ from phyelds.simulator.render import RenderMonitor
 from phyelds.simulator.effects import DrawNodes, DrawEdges, RenderConfig, RenderMode
 from phyelds.simulator.runner import aggregate_program_runner
 from phyelds.libraries.device import sense
-
+from CustomRenderMonitor import CustomRenderMonitor
+from CustomDrawings import CustomDrawNodes, CustomDrawEdges
 random.seed(42)
 
 @aggregate
@@ -29,14 +30,14 @@ def main():
     nodes_in_path = collect_or(target_distance, sense("source"))
     # distance from nodes_in
     distance_from_path = distance_to(nodes_in_path, distances)
-    channel = 1.0 if distance_from_path < 0.12 else 0.0
+    channel = 1.0 if distance_from_path < 1.12 else 0.0
     return channel  # distance_to(leader == 33, distances)
 
 
 simulator = Simulator()
 # deformed lattice
-simulator.environment.set_neighborhood_function(radius_neighborhood(0.12))
-deformed_lattice(simulator, 20, 20, 0.1, 0.01)
+simulator.environment.set_neighborhood_function(radius_neighborhood(1.12))
+deformed_lattice(simulator, 20, 20, 1, 0.01)
 # put source
 for node in simulator.environment.nodes.values():
     node.data = {"source": False, "target": False}
@@ -48,10 +49,10 @@ target.data["target"] = True
 for node in simulator.environment.nodes.values():
     simulator.schedule_event(0.0, aggregate_program_runner, simulator, 0.1, node, main)
 # render
-RenderMonitor(
+CustomRenderMonitor(
     simulator,
     RenderConfig(
-        effects=[DrawEdges(), DrawNodes(color_from="result")],
+        effects=[CustomDrawEdges(), CustomDrawNodes(color_from="result")],
         mode=RenderMode.SAVE,
         save_as="channel.mp4",
         dt=0.1

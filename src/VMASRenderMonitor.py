@@ -1,4 +1,6 @@
 import imageio
+import numpy as np
+from PIL import Image
 from phyelds.simulator import Simulator, Monitor
 from phyelds.simulator.effects import RenderConfig, RenderMode
 
@@ -16,3 +18,8 @@ class VMASRenderMonitor(Monitor):
 
     def on_finish(self):
         imageio.mimsave(f"{self.config.save_as}.gif", self.frames, fps=20)
+
+        for index, frame in enumerate(self.frames):
+            img = Image.fromarray(frame)
+            name = f'frame-{index:04d}.pdf'
+            img.save(name, resolution=500)

@@ -7,8 +7,9 @@ readme = "README.md"
 package-mode = false
 
 [tool.poetry.dependencies]
-python = "^3.13"
-phyelds = "5.0.0"
+python = ">=3.12,<3.14"
+phyelds = ">=7.0.0,<8.0.0"
+phyelds-vmas = ">=7.0.0,<8.0.0"
 imageio = "^2.37.2"
 
 

@@ -4,10 +4,11 @@ from vmas import make_env
 from phyelds.calculus import aggregate, neighbors
 from phyelds.libraries.device import store, sense, local_id
 from VMASRenderMonitor import VMASRenderMonitor
-from phyelds.simulator import Simulator, VmasEnvironment
+from phyelds.simulator import Simulator
 from phyelds.simulator.effects import RenderConfig, RenderMode
-from phyelds.simulator.runner import vmas_runner, schedule_program_for_all
+from phyelds.simulator.runner import schedule_program_for_all
 from phyelds.simulator.neighborhood import radius_neighborhood
+from phyelds.vmas import VmasEnvironment, vmas_runner
 
 def perturbation():
     angle = (torch.rand(1) * 2 - 1)* math.pi # ~ U(-pi,pi)

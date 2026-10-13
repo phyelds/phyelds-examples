@@ -1,10 +1,8 @@
-from phyelds.simulator.effects import Effect
-from abc import ABC, abstractmethod
-from enum import Enum
-from typing import Literal, Optional, Any, Annotated, Tuple, List
-from pydantic import BaseModel, Field, BeforeValidator, SerializeAsAny
+from typing import Literal, Optional
+
 from phyelds.simulator import Environment
-from phyelds.simulator.effects import Link
+from phyelds.simulator.effects import Effect, Link
+
 
 class CustomDrawEdges(Effect):
     """
@@ -59,29 +57,3 @@ class CustomDrawNodes(Effect):
             ax.scatter(x, y, c=colors, zorder=self.z_order, s=150)
         else:
             ax.scatter(x, y, c="blue", zorder=self.z_order, s=150)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

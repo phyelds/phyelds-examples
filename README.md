@@ -13,10 +13,10 @@ collective behaviour emerge.
 
 </div>
 
-| Channel | Self-organising coordination regions |
-|:---:|:---:|
-| ![A band of devices grows from the source to the target](assets/channel.gif) | ![The network splits into areas around elected leaders](assets/scr.gif) |
-| [`src/channel.py`](src/channel.py) | [`src/scr.py`](src/scr.py) |
+| Channel | Self-organising coordination regions | Vicsek flocking (VMAS) |
+|:---:|:---:|:---:|
+| ![A band of devices grows from the source to the target](assets/channel.gif) | ![The network splits into areas around elected leaders](assets/scr.gif) | ![20 robots align their headings and fly away as one flock](assets/vicsek.gif) |
+| [`src/channel.py`](src/channel.py) | [`src/scr.py`](src/scr.py) | [`src/VicsekFlocking.py`](src/VicsekFlocking.py) |
 
 ## The examples
 
@@ -56,6 +56,9 @@ poetry run python src/channel.py
 poetry run python src/scr.py
 poetry run python src/VicsekFlocking.py   # VMAS: installs PyTorch, renders with pyglet
 ```
+
+The VMAS example renders through pyglet, so it needs a display (or a virtual one,
+such as `xvfb-run`).
 
 `counter`, `channel` and `scr` save an `.mp4` video (it needs
 [ffmpeg](https://ffmpeg.org/)) and `channel` and `scr` also a PDF of the last frame,

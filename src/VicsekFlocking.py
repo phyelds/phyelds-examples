@@ -55,7 +55,6 @@ def action():
 
 env = make_env(
     scenario="flocking",
-    continuos_actions=False,
     num_envs=1,
     n_agents=20,
     n_obstacles=0

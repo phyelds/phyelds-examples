@@ -43,7 +43,8 @@ def channel() -> float:
 
 Open the notebook in [Colab](https://colab.research.google.com/github/phyelds/phyelds-examples/blob/main/binder/phyelds-example.ipynb)
 or [Binder](https://mybinder.org/v2/gh/phyelds/phyelds-examples/HEAD?labpath=binder%2Fphyelds-example.ipynb):
-it installs phyelds and runs the channel, drawing the network live.
+it installs phyelds and its simulator (`phyelds-simulator`) and runs the channel,
+drawing the network live.
 
 ## Run them locally
 

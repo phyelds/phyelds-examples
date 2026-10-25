@@ -1093,14 +1093,14 @@ xml = ["lxml (>=4.9.2)"]
 
 [[package]]
 name = "phyelds"
-version = "8.0.0"
+version = "8.11.0"
 description = "A lightweight Python library to support aggregate computing!"
 optional = false
 python-versions = "<3.14,>=3.12"
 groups = ["main"]
 files = [
-    {file = "phyelds-8.0.0-py3-none-any.whl", hash = "sha256:145466c503378e2ad49f6afec19e92b8157fc3ad90bb5fe6ddd622aec97246fc"},
-    {file = "phyelds-8.0.0.tar.gz", hash = "sha256:3b962c565055b9e5a328b35a85a6d1450aef4e1f191fbfd3d334933f64900e9c"},
+    {file = "phyelds-8.11.0-py3-none-any.whl", hash = "sha256:ee4bb1dd2f51d0cf787548e9e7ee561d611cc37c06cd8a4f08a1f9259a06e2f5"},
+    {file = "phyelds-8.11.0.tar.gz", hash = "sha256:d2d7572629b990c438ea624fc2ed945fad47c552e646574e85c9dd20505cd957"},
 ]
 
 [package.dependencies]
@@ -1108,14 +1108,14 @@ wrapt = ">=1.17.2,<1.18.0"
 
 [[package]]
 name = "phyelds-simulator"
-version = "8.0.0"
+version = "8.11.0"
 description = "A discrete-event simulator, with live rendering, for phyelds programs"
 optional = false
 python-versions = "<3.14,>=3.12"
 groups = ["main"]
 files = [
-    {file = "phyelds_simulator-8.0.0-py3-none-any.whl", hash = "sha256:b83d27bbc894ad82221c407dcb2e9b12a9b69739754bbc88d1f9cf31b57ecf96"},
-    {file = "phyelds_simulator-8.0.0.tar.gz", hash = "sha256:545c1f5a8eaffa34fef39b059a63f551306624630137fe891bbe079b7591bd93"},
+    {file = "phyelds_simulator-8.11.0-py3-none-any.whl", hash = "sha256:aabf164a346de32fe282b98ad5b5d3dce296a2bcb34c9b56cb6b182b32aa95b6"},
+    {file = "phyelds_simulator-8.11.0.tar.gz", hash = "sha256:a96317b1680fe5835d406c1f5b32f5a659bc8cf2da616945c49ced0a653ccc78"},
 ]
 
 [package.dependencies]
@@ -1125,18 +1125,18 @@ phyelds = ">=8.0.0,<9.0.0"
 pydantic = "2.12.5"
 
 [package.extras]
-jupyter = ["ipython (>=7.34.0,<8.0.0)"]
+jupyter = ["ipython (>=8.10.0)"]
 
 [[package]]
 name = "phyelds-vmas"
-version = "8.0.0"
+version = "8.11.0"
 description = "VMAS integration for phyelds"
 optional = false
 python-versions = "<3.14,>=3.12"
 groups = ["main"]
 files = [
-    {file = "phyelds_vmas-8.0.0-py3-none-any.whl", hash = "sha256:fb80ceccc94b931a4202a4c4b498fd867ceeeecc0b333a9c08905ff8b26ab89f"},
-    {file = "phyelds_vmas-8.0.0.tar.gz", hash = "sha256:341213ba2a16cbf4997f1998cf41a26e82dcc92fdde33a7d1eea87d300864bd4"},
+    {file = "phyelds_vmas-8.11.0-py3-none-any.whl", hash = "sha256:f4a872b821c513aa5c47e4b8550d9e4507c73c7e307ddef3891cb9edb81670f3"},
+    {file = "phyelds_vmas-8.11.0.tar.gz", hash = "sha256:e1bf7981a917b9980a9d62f500ff63d42cd4fc90a3895856bccb453a0e24846a"},
 ]
 
 [package.dependencies]
@@ -1761,4 +1761,4 @@ files = [
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.12,<3.14"
-content-hash = "0fbe722dbe4f5f42f73aa070dda2f388b5d76499659507146434ea96824b2cf3"
+content-hash = "22fe7ca10fdb03b74be5aa010ffb05cddf1f900f18b9feb23eb6f973002034cd"

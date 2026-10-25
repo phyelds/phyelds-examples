@@ -61,6 +61,17 @@ poetry run python src/VicsekFlocking.py   # VMAS: installs PyTorch, renders with
 The VMAS example renders through pyglet, so it needs a display (or a virtual one,
 such as `xvfb-run`).
 
+The examples require phyelds 8.11 or newer (below 9.0). Vicsek flocking reads
+`agent.sense()` and sends `action.send(...)` through the typed objects shared
+with the VMAS host. Each robot sends an action every round, before the next
+physics step.
+
+To check the Vicsek example without rendering:
+
+```bash
+PYTHONPATH=src poetry run python -m unittest discover -s tests -v
+```
+
 `counter`, `channel` and `scr` save an `.mp4` video (it needs
 [ffmpeg](https://ffmpeg.org/)) and `channel` and `scr` also a PDF of the last frame,
 styled for papers by [`CustomRenderMonitor`](src/CustomRenderMonitor.py). The

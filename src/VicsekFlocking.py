@@ -7,12 +7,11 @@ import math
 import torch
 from vmas import make_env
 from phyelds.calculus import aggregate, neighbors
-from phyelds.libraries.device import store, sense
 from phyelds.simulator import Simulator
 from phyelds.simulator.effects import RenderConfig, RenderMode
 from phyelds.simulator.neighborhood import radius_neighborhood
 from phyelds.simulator.runner import schedule_program_for_all
-from phyelds.vmas import VmasEnvironment, vmas_runner
+from phyelds.vmas import VmasEnvironment, action, agent, vmas_runner
 
 from VMASRenderMonitor import VMASRenderMonitor
 
@@ -49,8 +48,9 @@ def velocity_to_angle(vel, avg_vel):
 
 
 @aggregate
-def action():
-    myself = sense('agent')
+def flock() -> None:
+    """Align with neighboring agents and send the scenario's action."""
+    myself = agent.sense()
     vel = myself.state.vel.squeeze()
     neighbors_info = neighbors(vel).exclude_self()
     if neighbors_info:
@@ -60,18 +60,18 @@ def action():
         noise = perturbation()
         theta = theta + 0.1 * noise
         next_vel = [torch.cos(theta).item(), torch.sin(theta).item()]
-        store("action", next_vel)
+        action.send(next_vel)
     else:
         vel = vel.flatten().tolist()
-        store("action", vel)
+        action.send(vel)
 
 
 def build_simulator() -> Simulator:
-    """The VMAS flocking scenario, with every robot running ``action``."""
+    """The VMAS flocking scenario, with every robot running ``flock``."""
     env = make_env(scenario="flocking", num_envs=1, n_agents=20, n_obstacles=0)
     simulator = Simulator(VmasEnvironment(env))
     simulator.environment.set_neighborhood_function(radius_neighborhood(1.0))
-    schedule_program_for_all(simulator, 0.0, STEP, action)
+    schedule_program_for_all(simulator, 0.0, STEP, flock)
     simulator.schedule_event(0.2, vmas_runner, simulator, STEP)
     return simulator
 

@@ -17,9 +17,8 @@ DURATION = 100.0
 @aggregate
 def counter() -> int:
     """The number of rounds this device has executed so far."""
-    set_value, value = remember(0)
-    set_value(value + 1)
-    return value
+    value, set_value = remember(0)
+    return set_value(value + 1)
 
 
 def build_simulator() -> Simulator:

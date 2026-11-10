@@ -61,7 +61,10 @@ poetry run python src/VicsekFlocking.py   # VMAS: installs PyTorch, renders with
 The VMAS example renders through pyglet, so it needs a display (or a virtual one,
 such as `xvfb-run`).
 
-The examples require phyelds 8.11 or newer (below 9.0). Vicsek flocking reads
+The dependencies are pinned to [the state API update](https://github.com/phyelds/phyelds/commit/ba003715ff03b0b0034be480dc37e9660b304837)
+until its release is available on PyPI. State operations return plain Python values.
+
+Vicsek flocking reads
 `agent.sense()` and sends `action.send(...)` through the typed objects shared
 with the VMAS host. Each robot sends an action every round, before the next
 physics step.

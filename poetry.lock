@@ -1093,69 +1093,55 @@ xml = ["lxml (>=4.9.2)"]
 
 [[package]]
 name = "phyelds"
-version = "9.5.2"
+version = "10.0.0"
 description = "A lightweight Python library to support aggregate computing!"
 optional = false
-python-versions = ">=3.12,<3.15"
+python-versions = "<3.15,>=3.12"
 groups = ["main"]
-files = []
-develop = false
-
-[package.source]
-type = "git"
-url = "https://github.com/phyelds/phyelds.git"
-reference = "ba003715ff03b0b0034be480dc37e9660b304837"
-resolved_reference = "ba003715ff03b0b0034be480dc37e9660b304837"
+files = [
+    {file = "phyelds-10.0.0-py3-none-any.whl", hash = "sha256:fb62214942ed76429f550e5a9ed8a521d4de847f7ff2dc0cf8d0e2fadfec9fcb"},
+    {file = "phyelds-10.0.0.tar.gz", hash = "sha256:eee013ee56de0ae469131ef23bb0ce1dd5348f139a77dca162187f26011c5190"},
+]
 
 [[package]]
 name = "phyelds-simulator"
-version = "9.5.2"
+version = "10.0.0"
 description = "A discrete-event simulator, with live rendering, for phyelds programs"
 optional = false
-python-versions = ">=3.12,<3.15"
+python-versions = "<3.15,>=3.12"
 groups = ["main"]
-files = []
-develop = false
+files = [
+    {file = "phyelds_simulator-10.0.0-py3-none-any.whl", hash = "sha256:c4f62fbcf333a8d431d350e81ec0fe7dcca34f9f9554d305a3cf78f6921ead5e"},
+    {file = "phyelds_simulator-10.0.0.tar.gz", hash = "sha256:8c99e8d34a0bcadfa0510c7af659e4378534da87f2868650571c4e55d84738d8"},
+]
 
 [package.dependencies]
 matplotlib = ">=3.10.1,<3.11.0"
-pandas = "^2.2.3"
-phyelds = "^9.5.2"
+pandas = ">=2.2.3,<3.0.0"
+phyelds = ">=10.0.0,<11.0.0"
 pydantic = "2.12.5"
 
 [package.extras]
 jupyter = ["ipython (>=8.10.0)"]
 
-[package.source]
-type = "git"
-url = "https://github.com/phyelds/phyelds.git"
-reference = "ba003715ff03b0b0034be480dc37e9660b304837"
-resolved_reference = "ba003715ff03b0b0034be480dc37e9660b304837"
-subdirectory = "packages/phyelds-simulator"
-
 [[package]]
 name = "phyelds-vmas"
-version = "9.5.2"
+version = "10.0.0"
 description = "VMAS integration for phyelds"
 optional = false
-python-versions = ">=3.12,<3.15"
+python-versions = "<3.15,>=3.12"
 groups = ["main"]
-files = []
-develop = false
+files = [
+    {file = "phyelds_vmas-10.0.0-py3-none-any.whl", hash = "sha256:1a0a29bb793f298700b468f4a7f15d11b757db7c5735bc16a78036e1f0ef384c"},
+    {file = "phyelds_vmas-10.0.0.tar.gz", hash = "sha256:44a413acf0dc651e62434f104c82e2fe717be2204baabd6a4c66677e5c097eef"},
+]
 
 [package.dependencies]
 numpy = ">=1.26"
-phyelds = "^9.5.2"
-phyelds-simulator = "^9.5.2"
+phyelds = ">=10.0.0,<11.0.0"
+phyelds-simulator = ">=10.0.0,<11.0.0"
 torch = ">=2.0"
 vmas = "1.5.2"
-
-[package.source]
-type = "git"
-url = "https://github.com/phyelds/phyelds.git"
-reference = "ba003715ff03b0b0034be480dc37e9660b304837"
-resolved_reference = "ba003715ff03b0b0034be480dc37e9660b304837"
-subdirectory = "packages/phyelds-vmas"
 
 [[package]]
 name = "pillow"
@@ -1681,4 +1667,4 @@ test = ["pytest", "pytest-instafail", "pyyaml", "tqdm"]
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.12,<3.14"
-content-hash = "426a3b18ba42315f4049f7778ae83599707ef1fb3176abb33e2884cafa4f189d"
+content-hash = "ed18452bc3cf3cfcf14eab39676eb6a112fad606053527e50b49654559d27c33"

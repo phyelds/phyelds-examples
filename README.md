@@ -43,8 +43,9 @@ def channel() -> float:
 
 Open the notebook in [Colab](https://colab.research.google.com/github/phyelds/phyelds-examples/blob/main/binder/phyelds-example.ipynb)
 or [Binder](https://mybinder.org/v2/gh/phyelds/phyelds-examples/HEAD?labpath=binder%2Fphyelds-example.ipynb):
-it installs phyelds and its simulator (`phyelds-simulator`) and runs the channel,
-drawing the network live.
+Binder builds a Python 3.13 environment with `phyelds-simulator[jupyter]` 10.x.
+The notebook also installs this dependency when opened in Colab, then runs the
+channel, drawing the network live.
 
 ## Run them locally
 
@@ -61,12 +62,13 @@ poetry run python src/VicsekFlocking.py   # VMAS: installs PyTorch, renders with
 The VMAS example renders through pyglet, so it needs a display (or a virtual one,
 such as `xvfb-run`).
 
-The examples require phyelds 8.11 or newer (below 9.0). Vicsek flocking reads
-`agent.sense()` and sends `action.send(...)` through the typed objects shared
-with the VMAS host. Each robot sends an action every round, before the next
-physics step.
+The examples require phyelds 10.0 or newer (below 11.0), installed from PyPI.
 
-To check the Vicsek example without rendering:
+Vicsek flocking reads `agent.sense()` and sends `action.send(...)` through the
+typed objects shared with the VMAS host. Each robot sends an action every round,
+before the next physics step.
+
+To check the counter and the Vicsek example without rendering:
 
 ```bash
 PYTHONPATH=src poetry run python -m unittest discover -s tests -v

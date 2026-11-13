@@ -63,14 +63,12 @@ The VMAS example renders through pyglet, so it needs a display (or a virtual one
 such as `xvfb-run`).
 
 The examples require phyelds 10.0 or newer (below 11.0), installed from PyPI.
-State operations return plain Python values.
 
-Vicsek flocking reads
-`agent.sense()` and sends `action.send(...)` through the typed objects shared
-with the VMAS host. Each robot sends an action every round, before the next
-physics step.
+Vicsek flocking reads `agent.sense()` and sends `action.send(...)` through the
+typed objects shared with the VMAS host. Each robot sends an action every round,
+before the next physics step.
 
-To check the Vicsek example without rendering:
+To check the counter and the Vicsek example without rendering:
 
 ```bash
 PYTHONPATH=src poetry run python -m unittest discover -s tests -v
